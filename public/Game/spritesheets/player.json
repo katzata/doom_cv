@@ -1,0 +1,379 @@
+{
+    "frames": {
+        "player_walk_0": {
+            "frame": {
+                "x": 0,
+                "y": 0,
+                "w": 78,
+                "h": 106
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 78,
+                "h": 106
+            },
+            "sourceSize": {
+                "w": 78,
+                "h": 106
+            }
+        },
+        "player_walk_1": {
+            "frame": {
+                "x": 79,
+                "y": 0,
+                "w": 72,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 72,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 72,
+                "h": 110
+            }
+        },
+        "player_walk_2": {
+            "frame": {
+                "x": 152,
+                "y": 0,
+                "w": 76,
+                "h": 108
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 76,
+                "h": 108
+            },
+            "sourceSize": {
+                "w": 76,
+                "h": 108
+            }
+        },
+        "player_walk_3": {
+            "frame": {
+                "x": 229,
+                "y": 0,
+                "w": 62,
+                "h": 108
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 62,
+                "h": 108
+            },
+            "sourceSize": {
+                "w": 62,
+                "h": 108
+            }
+        },
+        "player_hit": {
+            "frame": {
+                "x": 0,
+                "y": 218,
+                "w": 86,
+                "h": 110
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 86,
+                "h": 110
+            },
+            "sourceSize": {
+                "w": 86,
+                "h": 110
+            }
+        },
+        "player_idle": {
+            "frame": {
+                "x": 0,
+                "y": 111,
+                "w": 89,
+                "h": 106
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 89,
+                "h": 106
+            },
+            "sourceSize": {
+                "w": 89,
+                "h": 106
+            }
+        },
+        "player_fire_0": {
+            "frame": {
+                "x": 89,
+                "y": 111,
+                "w": 85,
+                "h": 106
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 85,
+                "h": 106
+            },
+            "sourceSize": {
+                "w": 85,
+                "h": 106
+            }
+        },
+        "player_fire_1": {
+            "frame": {
+                "x": 175,
+                "y": 111,
+                "w": 94,
+                "h": 106
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 94,
+                "h": 106
+            },
+            "sourceSize": {
+                "w": 94,
+                "h": 106
+            }
+        },
+        "player_death_0": {
+            "frame": {
+                "x": 89,
+                "y": 218,
+                "w": 72,
+                "h": 112
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 72,
+                "h": 112
+            },
+            "sourceSize": {
+                "w": 72,
+                "h": 112
+            }
+        },
+        "player_death_1": {
+            "frame": {
+                "x": 163,
+                "y": 218 ,
+                "w": 88,
+                "h": 118
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 88,
+                "h": 118
+            },
+            "sourceSize": {
+                "w": 88,
+                "h": 118
+            }
+        },
+        "player_death_2": {
+            "frame": {
+                "x": 251,
+                "y": 218,
+                "w": 96,
+                "h": 114
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 96,
+                "h": 114
+            },
+            "sourceSize": {
+                "w": 96,
+                "h": 114
+            }
+        },
+        "player_death_3": {
+            "frame": {
+                "x": 0,
+                "y": 337,
+                "w": 106,
+                "h": 104
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 106,
+                "h": 104
+            },
+            "sourceSize": {
+                "w": 106,
+                "h": 104
+            }
+        },
+        "player_death_4": {
+            "frame": {
+                "x": 107,
+                "y": 337,
+                "w": 110,
+                "h": 94
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 110,
+                "h": 94
+            },
+            "sourceSize": {
+                "w": 110,
+                "h": 94
+            }
+        },
+        "player_death_5": {
+            "frame": {
+                "x": 218,
+                "y": 337,
+                "w": 114,
+                "h": 80
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 114,
+                "h": 80
+            },
+            "sourceSize": {
+                "w": 114,
+                "h": 80
+            }
+        },
+        "player_death_6": {
+            "frame": {
+                "x": 0,
+                "y": 442,
+                "w": 114,
+                "h": 66
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 114,
+                "h": 66
+            },
+            "sourceSize": {
+                "w": 114,
+                "h": 66
+            }
+        },
+        "player_death_7": {
+            "frame": {
+                "x": 115,
+                "y": 442,
+                "w": 114,
+                "h": 46
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 114,
+                "h": 46
+            },
+            "sourceSize": {
+                "w": 114,
+                "h": 46
+            }
+        },
+        "player_death_8": {
+            "frame": {
+                "x": 230,
+                "y": 442,
+                "w": 114,
+                "h": 44
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 114,
+                "h": 44
+            },
+            "sourceSize": {
+                "w": 114,
+                "h": 44
+            }
+        }
+    },
+    "animations": {
+        "walk": [
+            "player_walk_0",
+            "player_walk_1",
+            "player_walk_2",
+            "player_walk_3"
+        ],
+        "idle": [
+            "player_idle"
+        ],
+        "fire": [
+            "player_fire_0",
+            "player_fire_1"
+        ],
+        "death": [
+            "player_death_0",
+            "player_death_1",
+            "player_death_2",
+            "player_death_3",
+            "player_death_4",
+            "player_death_5",
+            "player_death_6",
+            "player_death_7",
+            "player_death_8"
+        ]
+    },
+    "meta": {
+        "image": "player.png",
+        "format": "RGBA8888",
+        "size": {
+            "w": 347,
+            "h": 508
+        },
+        "scale": "1"
+    }
+}
