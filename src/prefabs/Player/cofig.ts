@@ -1,20 +1,39 @@
 export const config = {
-    scale: 1
+    scale: 1,
+    postFireDelay: 0.17,
+    animationSpeed: 0.135
+};
+
+export const initialState = {
+    moving: false,
+    firing: false,
+    reloading: false,
+    isDead: false,
+    takingHit: false,
+    reSpawning: false,
+    velocity: {
+        x: 0,
+        y: 0,
+    }
 };
 
 export const movement = {
-    speed: 10,
-    turnDuration: 0.15,
+    speed: 2,
+    turnDuration: 0.13,
     decelerateDuration: 0.1,
     scale: 1,
-    fire: {
-        x: 0,
-        duration: .155,
+    hit: {
+        offset: 2,
         ease: "sine",
     },
-    reload: {
-        speedMultiplier: 6,
-        duration: 0.1,
+    fire: {
+        x: 0,
+        duration: 0.135,
+        ease: "sine",
+    },
+    death: {
+        x: [ -1, -4, -2, 3, 8, 15, 22, 34, 33 ],
+        y: [ -1, -4, -2, 3, 8, 15, 22, 34, 33 ],
     }
 };
 
@@ -26,18 +45,30 @@ export const animations = {
     walk: {
         anim: "walk",
         loop: true,
-        speed: 0.1,
+        speed: 0.11,
     },
     fire: {
         anim: "fire",
-        soundName: "ssshot",
+        soundName: "sshot",
         loop: false,
-        speed: 0.85,
+        speed: 0.6,
     },
-    reload: {
-        // soundName: "dash",
+    hit: {
+        anim: "hit",
         loop: false,
-        speed: 0.2,
+        speed: 0.135,
+    },
+    death: {
+        anim: "death",
+        soundName: "pdeath",
+        loop: false,
+        speed: 0.135,
+    },
+    reSpawn: {
+        anim: "reSpawn",
+        soundName: "telept",
+        loop: false,
+        speed: 0.135,
     }
 };
 
@@ -46,8 +77,7 @@ export const actions = {
     DOWN: "DOWN",
     LEFT: "LEFT",
     RIGHT: "RIGHT",
-    FIRE: "FIRE",
-    SHIFT: "SHIFT",
+    FIRE: "FIRE"
 };
 
 export const bindings = {
@@ -55,6 +85,5 @@ export const bindings = {
     DOWN: "KeyS",
     LEFT: ["KeyA", "ArrowLeft"].join("_"),
     RIGHT: ["KeyD", "ArrowRight"].join("_"),
-    FIRE: "Space",
-    SHIFT: "ShiftLeft",
+    FIRE: "Space"
 };

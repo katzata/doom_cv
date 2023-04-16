@@ -305,7 +305,7 @@
                 "x": 115,
                 "y": 442,
                 "w": 114,
-                "h": 46
+                "h": 42
             },
             "rotated": false,
             "trimmed": true,
@@ -313,11 +313,11 @@
                 "x": 0,
                 "y": 0,
                 "w": 114,
-                "h": 46
+                "h": 42
             },
             "sourceSize": {
                 "w": 114,
-                "h": 46
+                "h": 42
             }
         },
         "player_death_8": {
@@ -339,21 +339,224 @@
                 "w": 114,
                 "h": 44
             }
+        },
+        "player_reSpawn_0": {
+            "frame": {
+                "x": 0,
+                "y": 509,
+                "w": 41,
+                "h": 56
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 41,
+                "h": 56
+            },
+            "sourceSize": {
+                "w": 41,
+                "h": 56
+            }
+        },
+        "player_reSpawn_1": {
+            "frame": {
+                "x": 42,
+                "y": 509,
+                "w": 42,
+                "h": 45
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 42,
+                "h": 45
+            },
+            "sourceSize": {
+                "w": 42,
+                "h": 45
+            }
+        },
+        "player_reSpawn_2": {
+            "frame": {
+                "x": 85,
+                "y": 509,
+                "w": 40,
+                "h": 37
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 40,
+                "h": 37
+            },
+            "sourceSize": {
+                "w": 40,
+                "h": 37
+            }
+        },
+        "player_reSpawn_3": {
+            "frame": {
+                "x": 126,
+                "y": 509,
+                "w": 30,
+                "h": 34
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 30,
+                "h": 34
+            },
+            "sourceSize": {
+                "w": 30,
+                "h": 34
+            }
+        },
+        "player_reSpawn_4": {
+            "frame": {
+                "x": 157,
+                "y": 509,
+                "w": 17,
+                "h": 16
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 17,
+                "h": 16
+            },
+            "sourceSize": {
+                "w": 17,
+                "h": 16
+            }
+        },
+        "player_reSpawn_5": {
+            "frame": {
+                "x": 175,
+                "y": 509,
+                "w": 9,
+                "h": 8
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 9,
+                "h": 8
+            },
+            "sourceSize": {
+                "w": 9,
+                "h": 8
+            }
+        },
+        "player_reSpawn_6": {
+            "frame": {
+                "x": 185,
+                "y": 509,
+                "w": 3,
+                "h": 3
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 3,
+                "h": 3
+            },
+            "sourceSize": {
+                "w": 3,
+                "h": 3
+            }
+        },
+        "player_reSpawn_7": {
+            "frame": {
+                "x": 189,
+                "y": 509,
+                "w": 7,
+                "h": 7
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 7,
+                "h": 7
+            },
+            "sourceSize": {
+                "w": 7,
+                "h": 7
+            }
+        },
+        "player_reSpawn_8": {
+            "frame": {
+                "x": 197,
+                "y": 509,
+                "w": 13,
+                "h": 13
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 13,
+                "h": 13
+            },
+            "sourceSize": {
+                "w": 13,
+                "h": 13
+            }
+        },
+        "player_reSpawn_9": {
+            "frame": {
+                "x": 211,
+                "y": 509,
+                "w": 17,
+                "h": 17
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 17,
+                "h": 17
+            },
+            "sourceSize": {
+                "w": 17,
+                "h": 17
+            }
         }
     },
     "animations": {
+        "idle": [
+            "player_idle"
+        ],
         "walk": [
             "player_walk_0",
             "player_walk_1",
             "player_walk_2",
             "player_walk_3"
         ],
-        "idle": [
-            "player_idle"
-        ],
         "fire": [
             "player_fire_0",
             "player_fire_1"
+        ],
+        "hit": [
+            "player_hit"
         ],
         "death": [
             "player_death_0",
@@ -365,6 +568,18 @@
             "player_death_6",
             "player_death_7",
             "player_death_8"
+        ],
+        "reSpawn": [
+            "player_reSpawn_0",
+            "player_reSpawn_1",
+            "player_reSpawn_2",
+            "player_reSpawn_3",
+            "player_reSpawn_4",
+            "player_reSpawn_5",
+            "player_reSpawn_6",
+            "player_reSpawn_7",
+            "player_reSpawn_8",
+            "player_reSpawn_9"
         ]
     },
     "meta": {
@@ -372,7 +587,7 @@
         "format": "RGBA8888",
         "size": {
             "w": 347,
-            "h": 508
+            "h": 565
         },
         "scale": "1"
     }

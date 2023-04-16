@@ -1,4 +1,4 @@
-import { sound } from "@pixi/sound";
+import { sound, CompleteCallback } from "@pixi/sound";
 import { AnimatedSprite, Container } from "pixi.js";
 import { spritesheets } from "../core/AssetLoader";
 
@@ -7,6 +7,8 @@ interface Play {
     soundName?: string;
     loop?: boolean;
     speed?: number;
+	spriteChangeHandler?: (e: any) => void;
+	soundCallback?: CompleteCallback;
 };
 
 export default class Animation extends Container {
@@ -48,6 +50,8 @@ export default class Animation extends Container {
 		soundName,
 		loop = false,
 		speed = this.speed,
+		spriteChangeHandler,
+		soundCallback = () => {}
 	}: Play) {
 		if (this.sprite) {
 			this.sprite.stop();
@@ -65,11 +69,13 @@ export default class Animation extends Container {
 
 		this.currentAnimation = anim;
 
+		if (spriteChangeHandler) this.sprite.onFrameChange = spriteChangeHandler;
+
 		this.sprite.loop = loop;
 		this.sprite.animationSpeed = speed;
 		this.sprite.gotoAndPlay(0);
 
-		if (soundName) sound.play(soundName);
+		if (soundName) sound.play(soundName, soundCallback);
 
 		this.addChild(this.sprite);
 

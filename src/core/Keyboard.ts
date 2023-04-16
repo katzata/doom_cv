@@ -21,7 +21,6 @@ export default class Keyboard extends utils.EventEmitter {
 
 		this.keyActionMap = Object.entries(bindings).reduce(
 			(acc, [key, action]) => {
-				// console.log("action", action);
 				acc[action] = key as keyof typeof this.actions;
 
 				return acc;
@@ -29,21 +28,17 @@ export default class Keyboard extends utils.EventEmitter {
 			{} as Record<string, keyof typeof bindings>
 		);
 
-		// console.log(this.actionKeyMap, this.actions, this.keyActionMap);
-
 		this.listenToKeyEvents();
 	};
 
 	private listenToKeyEvents() {
 		document.addEventListener("keydown", (e) => this.onKeyPress(e.code));
 		document.addEventListener("keyup", (e) => this.onKeyRelease(e.code));
+		window.addEventListener("blur", () => this.onWindowBlur());
 	};
 
 	private onKeyPress(key: string): void {
-		// console.log(key, this.keyMap);
 		const currentKey = this.keyCheck(key);
-		// console.log(currentKey);
-
 		if (this.isKeyDown(key) || !currentKey) return;
 
 		this.keyMap.set(currentKey, true);
@@ -66,19 +61,20 @@ export default class Keyboard extends utils.EventEmitter {
 		});
 	};
 
+	private onWindowBlur() {
+		for (const key of this.keyMap.keys()) {
+			this.onKeyRelease(key);
+		};
+	};
+
 	private keyCheck(key: string): string | undefined {
 		let keyRes: string | undefined;
-		// const test = key in this.keyActionMap
-		// console.log(key, this.keyActionMap);
 
 		for (const keyX in this.keyActionMap) {
 			if (keyX.indexOf(key) > -1) {
-				// console.log(keyX);
 				keyRes = keyX;
 				break;
 			};
-
-			// console.log(this.keyActionMap[keyX]);
 		};
 
 		return keyRes;
