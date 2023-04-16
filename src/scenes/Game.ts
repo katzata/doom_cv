@@ -15,26 +15,27 @@ export default class Game extends Scene {
 	private maskRect = new Graphics();
 	private testBorder = new Graphics();
 
-	offsetX: number = 130;
+	levelOffsetX: number = 0;
+	scenery: Container[] = [];
 
 	load() {
 		// const { innerWidth, innerHeight } = window;
 		const { viewport } = config;
 
 		this.bg = Sprite.from("level_bg");
-		this.bg.x = this.offsetX;
+		this.bg.x = this.levelOffsetX;
 
 		const currentWidth = this.currentWidth();
 		const currentHeight = this.currentHeight();
 		scaleProportionately(currentWidth, currentHeight, viewport.width, viewport.height, this);
 
-		// this.floor = new Floor(viewport.width);
-		// this.floor.x = 0;
-		// this.floor.y = level.height - 150;
+		this.floor = new Floor(viewport.width);
+		this.floor.x = 0;
+		this.floor.y = viewport.height - 150;
 
 		this.player = new Player();
 		this.player.x = viewport.width / 4;
-		this.player.y = viewport.height / 2;
+		this.player.y = viewport.height / 1.3;
 
 		this.maskRect.beginFill(0x000000, 1);
 		this.maskRect.drawRoundedRect(0, 0, viewport.width, viewport.height, 8);
@@ -47,10 +48,11 @@ export default class Game extends Scene {
 
 		this.addChild(this.bg);
 		this.addMask(viewport.width, viewport.height, this.maskRect);
-		this.addChild(this.player, this.maskRect, this.testBorder);
+		this.addChild(this.floor, this.player, this.maskRect, this.testBorder);
 
 		this.handleMovement(this.player);
 		centerObjects(currentWidth, currentHeight, this);
+		this.scenery = [this.bg, this.floor];
 		// scaleProportionately(this.levelSize, innerWidth, innerHeight, config.level.aspectRatio);
 		// scaleProportionately(this, innerWidth, innerHeight, config.viewport.aspectRatio);
 	};
@@ -61,15 +63,19 @@ export default class Game extends Scene {
 		Ticker.shared.add((delta) => {
 		  	seconds += (1 / 60) * delta;
 
-
-			this.bg!.x += target.state.velocity.x / -8;
-		  	this.updatePosition(seconds);
+			const offset = target.state.velocity.x / -1;
+			// this.setLevelOffsetX(offset);
+		  	this.updatePosition(offset);
 		});
-	}
+	};
 
-	  updatePosition(x: number) {
-		// console.log(x);
+	updatePosition(offset: number) {
+		for (const item of this.scenery) {
+			item.x += offset;
+		};
 
+		// this.bg.x += offset;
+		// this.floor.x += offset;
 		// this.bg.x -= x * index * this.config.panSpeed;
 		// for (const [index, child] of this.children.entries()) {
 		//   if (child instanceof TilingSprite) {
@@ -78,12 +84,12 @@ export default class Game extends Scene {
 		// 	this.bg.x -= x * index * this.config.panSpeed;
 		//   }
 		// }
-	  }
+	}
 
-	setOffsetX(offset: number) {
+	setLevelOffsetX(offset: number) {
 		// console.log(offset);
-		this.offsetX += offset;
-		this.bg!.x = this.offsetX;
+		this.levelOffsetX += offset;
+		// this.bg!.x = this.levelOffsetX;
 	};
 
 	onResize(width: number, height: number): void {

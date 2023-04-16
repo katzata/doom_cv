@@ -95,7 +95,7 @@ export class Player extends Container {
 			this.setAnimState({ state: fire, soundCallback: postFireAction });
 		} else if (this.state.velocity.x !== 0) {
 			if (this.currentState === walk) return;
-			this.setAnimState({ state: walk});
+			this.setAnimState({ state: walk });
 		} else {
 			if (this.currentState === idle) return;
 			this.setAnimState({ state: idle});
@@ -115,10 +115,10 @@ export class Player extends Container {
 				this.takeHit();
 				break;
 			case "LEFT":
-				if (!this.firing && !this.isDead) this.move(Directions.LEFT);
+				if (!this.firing && !this.isDead && !this.takingHit) this.move(Directions.LEFT);
 				break;
 			case "RIGHT":
-				if (!this.firing && !this.isDead) this.move(Directions.RIGHT);
+				if (!this.firing && !this.isDead && !this.takingHit) this.move(Directions.RIGHT);
 				break;
 			case "FIRE":
 				this.fire();
@@ -147,8 +147,6 @@ export class Player extends Container {
 	 * @param direction The new x axis coordinates.
 	 */
 	async move(direction: Directions) {
-		if (this.firing) return;
-
 		this.moving = true;
 		this.decelerationTween?.progress(1);
 		this.state.velocity.x = direction * this.movement.speed;
@@ -198,6 +196,26 @@ export class Player extends Container {
 	};
 
 	/**
+	 *  Player take hit.
+	 */
+	async takeHit() {
+		if (this.takingHit || this.isDead) return;
+
+		const direction = this.getDirection();
+
+		this.takingHit = true;
+		this.state.velocity.x = 0;
+		this.x + (movement.hit.offset / direction);
+
+		await gsap.to(this, {
+			duration: (animations.hit.speed * 3),
+			x: this.x - (movement.hit.offset / direction)
+		});
+
+		this.takingHit = false;
+	};
+
+	/**
 	 *  Player death.
 	 */
 	async death() {
@@ -216,25 +234,6 @@ export class Player extends Container {
 		this.reSpawning = true;
 		await gsap.to(this, { duration: (animations.reSpawn.speed * 13) });
 		this.reSpawning = false;
-	};
-
-	/**
-	 *  Player take hit.
-	 */
-	async takeHit() {
-		if (this.takingHit || this.isDead) return;
-
-		const direction = this.getDirection();
-
-		this.takingHit = true;
-		this.x + (movement.hit.offset / direction);
-
-		await gsap.to(this, {
-			duration: (animations.hit.speed * 3),
-			x: this.x - (movement.hit.offset / direction)
-		});
-
-		this.takingHit = false;
 	};
 
 	/**

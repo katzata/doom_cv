@@ -18,7 +18,7 @@ export const initialState = {
 };
 
 export const movement = {
-    speed: 2,
+    speed: 2.5,
     turnDuration: 0.13,
     decelerateDuration: 0.1,
     scale: 1,
@@ -45,7 +45,7 @@ export const animations = {
     walk: {
         anim: "walk",
         loop: true,
-        speed: 0.11,
+        speed: 0.1,
     },
     fire: {
         anim: "fire",
