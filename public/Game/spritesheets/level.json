@@ -4255,9 +4255,29 @@
 
 
 
-        "hex_tile": {
+        "hex_tile_0": {
             "frame": {
-                "x": 1702,
+                "x": 1767,
+                "y": 1270,
+                "w": 64,
+                "h": 64
+            },
+            "rotated": false,
+            "trimmed": false,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 64,
+                "h": 64
+            },
+            "sourceSize": {
+                "w": 64,
+                "h": 64
+            }
+        },
+        "hex_tile_1": {
+            "frame": {
+                "x": 1832,
                 "y": 1270,
                 "w": 64,
                 "h": 64
@@ -4335,6 +4355,26 @@
                 "h": 32
             }
         },
+        "floor_skulls": {
+            "frame": {
+                "x": 2683,
+                "y": 1712,
+                "w": 64,
+                "h": 128
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 64,
+                "h": 128
+            },
+            "sourceSize": {
+                "w": 64,
+                "h": 128
+            }
+        },
         "bones+": {
             "frame": {
                 "x": 2625,
@@ -4395,7 +4435,26 @@
                 "h": 128
             }
         },
-
+        "snakes_01": {
+            "frame": {
+                "x": 2743,
+                "y": 1882,
+                "w": 128,
+                "h": 64
+            },
+            "rotated": false,
+            "trimmed": true,
+            "spriteSourceSize": {
+                "x": 0,
+                "y": 0,
+                "w": 128,
+                "h": 64
+            },
+            "sourceSize": {
+                "w": 128,
+                "h": 64
+            }
+        },
 
 
         "wall_border_mini_skulls": {
@@ -4500,22 +4559,22 @@
         },
         "wall_meat_0": {
             "frame": {
-                "x": 2614,
-                "y": 1919,
-                "w": 256,
-                "h": 128
+                "x": 2485,
+                "y": 1886,
+                "w": 128,
+                "h": 64
             },
             "rotated": false,
             "trimmed": true,
             "spriteSourceSize": {
                 "x": 0,
                 "y": 0,
-                "w": 256,
-                "h": 128
+                "w": 128,
+                "h": 64
             },
             "sourceSize": {
-                "w": 256,
-                "h": 128
+                "w": 128,
+                "h": 64
             }
         },
         "wall_meat_1": {

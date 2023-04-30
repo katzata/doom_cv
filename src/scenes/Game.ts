@@ -31,11 +31,11 @@ export default class Game extends Scene {
 
 		this.floor = new Floor(viewport.width);
 		this.floor.x = 0;
-		this.floor.y = viewport.height - 150;
+		this.floor.y = viewport.height - this.floor.height;
 
 		this.player = new Player();
 		this.player.x = viewport.width / 4;
-		this.player.y = viewport.height / 1.3;
+		this.player.y = viewport.height - 105;
 
 		this.maskRect.beginFill(0x000000, 1);
 		this.maskRect.drawRoundedRect(0, 0, viewport.width, viewport.height, 8);
@@ -43,10 +43,8 @@ export default class Game extends Scene {
 		this.testBorder.lineStyle({ width: 5, color: 0xf0f0f0 });
 		this.testBorder.drawRoundedRect(0, 0, viewport.width, viewport.height, 0);
 
-		this.maskRect.x = 0;
-		this.maskRect.y = 0;
-
 		this.addChild(this.bg);
+
 		this.addMask(viewport.width, viewport.height, this.maskRect);
 		this.addChild(this.floor, this.player, this.maskRect, this.testBorder);
 
@@ -64,7 +62,7 @@ export default class Game extends Scene {
 		  	seconds += (1 / 60) * delta;
 
 			const offset = target.state.velocity.x / -1;
-			// this.setLevelOffsetX(offset);
+			this.setLevelOffsetX(offset);
 		  	this.updatePosition(offset);
 		});
 	};

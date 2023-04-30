@@ -1,4 +1,10 @@
-import { DisplayObject, Sprite, Container } from "pixi.js";
+import { DisplayObject, Sprite, Container, Texture } from "pixi.js";
+
+interface TileMap {
+	singleTexture?: Texture;
+	textures?: Texture[];
+	textureMap?: number[];
+}
 
 export function centerObjects(width: number, height: number, ...toCenter: DisplayObject[]) {
 	const center = (obj: DisplayObject) => {
@@ -17,7 +23,7 @@ export function centerObjects(width: number, height: number, ...toCenter: Displa
 	toCenter.forEach(center);
 }
 
-export function scaleProportionately(currentWidth:number, currentHeight: number, initialWidth: number, initialHeight: number, ...targets: DisplayObject[]): void {
+export function scaleProportionately(currentWidth: number, currentHeight: number, initialWidth: number, initialHeight: number, ...targets: DisplayObject[]): void {
 	for (const target of targets) {
 		const isSprite = target instanceof Sprite;
 		const width: number = currentWidth > currentHeight ? currentWidth : widthCalc();
@@ -58,3 +64,52 @@ export async function after(
 export function getEntries<T extends object>(obj: T) {
 	return Object.entries(obj) as Entries<T>;
 }
+
+/**
+ * Render a row of tiles that spans across the viewport width.
+ * Will render two additional tiles which will be moved back and forth (depending on the direction of the player movement).
+ */
+export function generateMultipleTiles(texture: TileMap, width: number, y: number, options?: object): Sprite[] {
+	const tiles = [];
+
+	if (texture.textureMap) {
+		for (let i = 0; i < texture.textureMap.length + 2; i++) {
+			const x = (i * texture.textures![0].width);
+			tiles.push(generateSprite(texture.textures![texture.textureMap[i]], { x, y, ...options }));
+		};
+	} else {
+		for (let i = 0; i < Math.floor(width / texture.singleTexture!.width) + 2; i++) {
+			const x = (i * texture.singleTexture!.width);
+			tiles.push(generateSprite(texture.singleTexture!, { x, y, ...options }));
+		};
+	};
+
+	return tiles;
+};
+
+/**
+ * Generate a spite object.
+ */
+export function generateSprite(texture: Texture, options?: Record<string, string | number>): Sprite {
+	const sprite: Sprite = new Sprite();
+	sprite.texture = texture;
+
+	for (let key in options) {
+		const value = options[key];
+
+		if (key.indexOf("scale") > -1) {
+			const newScale = { x: sprite.scale.x, y: sprite.scale.y };
+
+			if (key.indexOf("Y") > -1) newScale.y = Number(value);
+
+			sprite.scale.set(newScale.x, newScale.y);
+		} else {
+			// @ts-expect-error
+			sprite[key] = value;
+		};
+	};
+
+	return sprite;
+};
+
+

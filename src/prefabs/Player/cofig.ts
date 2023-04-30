@@ -18,7 +18,7 @@ export const initialState = {
 };
 
 export const movement = {
-    speed: 2.5,
+    speed: 4,
     turnDuration: 0.13,
     decelerateDuration: 0.1,
     scale: 1,
